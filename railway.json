@@ -1,0 +1,9 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "corepack enable && pnpm install && pnpm --filter share-the-ride build"
+  },
+  "deploy": {
+    "startCommand": "pnpm --filter share-the-ride preview --host"
+  }
+}
