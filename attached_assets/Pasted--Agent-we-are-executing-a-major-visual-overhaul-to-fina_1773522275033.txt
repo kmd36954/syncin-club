@@ -1,0 +1,37 @@
+"Agent, we are executing a major visual overhaul to finalize the brand identity. We are pivoting to a 'Corporate Clean' Light Theme for better daylight legibility, and implementing a custom code-based logo. Please execute these changes globally:
+
+1. The Custom SVG Logo (Brand Identity):
+
+Do not look for an image file. Generate an inline SVG icon directly in the code.
+
+Design: Create a stylized, abstract 'S' and 'X' intersecting (symbolizing a handshake/synergy).
+
+Color: Use a Champagne Gold gradient (from #D4AF37 to #AA801E) for the SVG paths. Make it sleek and modern.
+
+Placement: Place this SVG (height 40px) in the top-left of the header on all pages, and centered on the Login/Signup page. Add the text 'SyncIn Club' next to it in a clean, bold, White sans-serif font.
+
+2. 'Corporate Clean' Light Theme (Global UI):
+
+App Background: Change the main body background of the app from dark navy to Pure White (#FFFFFF) or very soft Pearl Grey (#F8F9FA).
+
+Containers & Cards: All Journey, Request, and Profile cards must have a White background with a subtle drop-shadow (box-shadow: 0 4px 6px rgba(0,0,0,0.1)) so they appear to float cleanly over the map or background.
+
+3. Typography & Readability:
+
+Change all main body text, labels, and headers within the white cards to Dark Midnight Navy (#0B132B) or Dark Charcoal (#333333).
+
+Secondary text (dates, locations) should be a professional Slate Grey.
+
+Ensure all input fields (Search bars, login inputs) have a White background, a thin grey border, and the text typed by the user is Dark and highly visible.
+
+4. Brand Accents (The Navy Focus):
+
+Keep the Top Header (where the new logo sits) and the Bottom Navigation Bar in the original Midnight Navy (#0B132B). This will frame the bright app perfectly.
+
+Primary action buttons ('Host', 'Request', 'Accept') must be solid Midnight Navy or Electric Blue with high-contrast White text.
+
+5. The Login/Dashboard Hero Background:
+
+On the Login screen or the very top of the Dashboard, integrate a high-quality Unsplash placeholder image of a sleek executive vehicle or professional cityscape.
+
+Apply a Navy Blue gradient overlay so it blends perfectly with the new header and the white text remains 100% readable."

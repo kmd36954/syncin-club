@@ -1,0 +1,41 @@
+Root Cause Confirmed
+Line 317–320 — the outgoing array contains your interest requests TO other rides. The Journey Offers tab is showing these — but it should show available rides from other members (which are never fetched at all).
+The tab labels are also swapped conceptually:
+
+"Journey Requests" tab (incoming) = people requesting to join YOUR ride ✅
+"Journey Offers" tab (outgoing) = YOUR requests to join others ❌ — this is wrongly named AND the badge counts cancelled/dismissed ones
+
+The badge count bug — line 214:
+js...outgoing.filter(i => i.status !== "pending"...) // counts dismissed + cancelled = inflated number
+
+The Fix
+Give the agent this exact instruction:
+
+In artifacts/share-the-ride/src/components/NotificationsDrawer.tsx make these two changes:
+Change 1 — Fix badgeCount (line 211–217)
+Replace:
+jsconst badgeCount = useMemo(() => {
+  const actionableIds = [
+    ...incoming.filter(i => i.status === "pending" && !localDismissed.has(i.id)).map(i => `in-${i.id}`),
+    ...outgoing.filter(i => i.status !== "pending" && !localCancelledRequests.has(i.id)).map(i => `out-${i.id}`),
+  ];
+  return actionableIds.filter(id => !seenIds.has(id)).length;
+}, [incoming, outgoing, localDismissed, localCancelledRequests, seenIds]);
+With:
+jsconst badgeCount = useMemo(() => {
+  const actionableIds = [
+    ...incoming.filter(i => i.status === "pending" && !localDismissed.has(i.id)).map(i => `in-${i.id}`),
+    ...outgoing.filter(i => i.status === "connected" && !localCancelledRequests.has(i.id)).map(i => `out-${i.id}`),
+  ];
+  return actionableIds.filter(id => !seenIds.has(id)).length;
+}, [incoming, outgoing, localDismissed, localCancelledRequests, seenIds]);
+Change 2 — Fix Journey Offers tab to exclude cancelled/dismissed (line 317–320)
+Replace:
+jsconst acceptedOutgoing  = outgoing.filter(i => i.status === "connected"  && !localCancelledRequests.has(i.id));
+const dismissedOutgoing = outgoing.filter(i => i.status === "dismissed"  && !localCancelledRequests.has(i.id));
+const pendingOutgoing   = outgoing.filter(i => i.status === "pending"    && !localCancelledRequests.has(i.id));
+const cancelledOutgoing = outgoing.filter(i => i.status === "cancelled"  && !localCancelledRequests.has(i.id));
+With:
+jsconst acceptedOutgoing  = outgoing.filter(i => i.status === "connected" && !localCancelledRequests.has(i.id));
+const pendingOutgoing   = outgoing.filter(i => i.status === "pending"   && !localCancelledRequests.has(i.id));
+After making both changes, restart the app and test.

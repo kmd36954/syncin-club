@@ -1,0 +1,19 @@
+packages:
+  "framer-motion": "For page transitions and scroll animations"
+  "date-fns": "For formatting departure times cleanly"
+  "react-hook-form": "For robust form state management"
+  "@hookform/resolvers": "For Zod schema validation in forms"
+  "zod": "For defining and validating form schemas"
+
+images:
+  - path: "artifacts/share-the-ride/public/images/hero-car.png"
+    description: "A beautifully stylized, minimalist flat vector illustration of a modern green eco-friendly car driving on a scenic mountain road in Northern Pakistan, vibrant colors, clean web design aesthetic"
+    aspect_ratio: "16:9"
+  - path: "artifacts/share-the-ride/public/images/pattern-bg.png"
+    description: "Subtle abstract geometric web background pattern with soft white, light gray, and very light green shapes, minimalist and clean"
+    aspect_ratio: "16:9"
+
+notes:
+  - Uses @workspace/api-client-react for API hooks
+  - Uses @workspace/replit-auth-web for authentication
+  - Mobile-first approach with Tailwind CSS v4

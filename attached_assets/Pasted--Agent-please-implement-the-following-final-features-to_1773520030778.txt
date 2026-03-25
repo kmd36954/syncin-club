@@ -1,0 +1,37 @@
+"Agent, please implement the following final features to complete the SyncIn Club professional ecosystem. This must be integrated into the existing Midnight Navy/White theme:
+
+1. Mandatory Community Covenant (Policy Page):
+
+Create a mandatory full-screen overlay that appears immediately after sign-up/login.
+
+Title: 'SyncIn Club: Community Covenant'.
+
+Content: Include sections on: 'Professional Purpose' (White-collar networking only), 'Sovereign Responsibility' (Mandatory physical ID and Vehicle Reg verification), 'Mutual Fee Agreement' (Fuel shares decided privately), and 'Executive Code of Conduct'.
+
+Action: Add a checkbox: 'I understand this is a private professional network and take full responsibility for verifying my partners.' Users cannot access the Dashboard until they click 'I Accept & Join the Club'.
+
+2. Rebranding: 'Request a Journey':
+
+Rename the 'Find a Journey' card and all related headers to 'Request a Journey'.
+
+Marketplace Logic: When a user 'Requests a Journey,' it must be published to a public feed visible to all Hosts on the Dashboard under a section called 'Open Requests'.
+
+Every Request card must have 'Accept' (Blue) and 'Ignore' (Grey) buttons for the Host.
+
+3. Direct WhatsApp & Handshake Logic:
+
+WhatsApp Integration: When a journey is accepted by both sides, display a prominent WhatsApp Button (Official Green #25D366). Clicking this must directly open a WhatsApp chat with the partner’s mobile number using the pre-filled message: 'Hi, I am your SyncIn Club partner. Let’s coordinate our journey!'
+
+The Handshake Pop-up: At the moment of mutual acceptance, trigger a full-screen Gold Handshake Icon animation with the text: 'Handshake Complete! You have successfully Synced In.'
+
+4. Mutual Profile Visibility:
+
+Add a 'View Profile' button to all Journey and Request cards. Hosts and Passengers must be able to view each other's professional details (LinkedIn, Job Title, and for Hosts: Vehicle Model/Reg) before clicking Accept.
+
+5. Safety Alerts:
+
+After the Handshake, show a persistent reminder: 'REMINDER: Physically verify ID and Vehicle Reg. Agree on fuel share privately via WhatsApp.'
+
+6. UI Polish:
+
+Ensure the Map is full-screen in 'Host' and 'Request' modes with the fixed Center Needle. All text must be White (#FFFFFF) on Navy. Use rounded corners (16px) for all panels and buttons."

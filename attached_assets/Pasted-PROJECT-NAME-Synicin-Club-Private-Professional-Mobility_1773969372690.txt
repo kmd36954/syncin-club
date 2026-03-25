@@ -1,0 +1,208 @@
+PROJECT NAME: Synicin Club (Private Professional Mobility Network)
+
+OBJECTIVE:
+Transform the existing ride-sharing app into a private, trust-based professional journey-sharing platform. This is NOT a taxi or ride-hailing app. It is a verified members-only club.
+
+CORE PRINCIPLES:
+
+* Only verified professionals can access the platform
+* All users must pass onboarding verification
+* No pricing or fare system (members agree mutually)
+* Focus on trust, identity, and exclusivity
+
+---
+
+## STEP 1: USER ROLES & TERMINOLOGY
+
+Replace all ride-hailing language:
+
+* "Driver" → "Host"
+* "Passenger" → "Member"
+* "Book Ride" → "Request to Join Journey"
+* "Ride" → "Journey"
+* "Fare" → REMOVE completely
+
+---
+
+## STEP 2: ONBOARDING & VERIFICATION SYSTEM
+
+Create a mandatory onboarding flow BEFORE app access.
+
+Fields required:
+
+* Full Name
+* Profession
+* Company/Organization
+* LinkedIn Profile URL (required)
+* Phone Number (with OTP verification)
+* CNIC Upload (file upload)
+* Profile Photo (selfie upload)
+
+For Hosts (additional fields):
+
+* Car Registration Number
+* Car Model
+* Car Registration Document Upload
+
+Flow:
+
+1. User submits onboarding form
+2. Show status: "Verification Pending"
+3. Store all data in database
+4. User cannot access main app until approved
+
+Add user status field:
+
+* pending
+* approved
+* rejected
+
+---
+
+## STEP 3: DASHBOARD ACCESS CONTROL
+
+* Only "approved" users can access dashboard
+* Others see a "Verification Pending" screen
+
+---
+
+## STEP 4: PROFILE SYSTEM (TRUST LAYER)
+
+Create user profile card with:
+
+* Name
+* Profile photo
+* Profession badge
+* Company name
+* LinkedIn link (clickable)
+* Member since date
+* Verification badge (Verified ✔)
+
+Display profile BEFORE joining any journey
+
+---
+
+## STEP 5: JOURNEY SYSTEM (SIMPLIFIED MATCHING)
+
+Users can:
+
+1. Offer a Journey (Host)
+
+   * Start location
+   * Destination
+   * Date & time
+   * Available seats
+
+2. Request to Join (Member)
+
+Remove:
+
+* Any pricing logic
+* Any payment integration
+
+Add:
+
+* "Request to Join Journey" button
+* Host can accept/reject requests
+
+---
+
+## STEP 6: BASIC MATCHING LOGIC
+
+Implement simple filtering:
+
+* Match journeys based on:
+
+  * same city
+  * similar route
+  * similar time
+
+Display list of available journeys
+
+---
+
+## STEP 7: UI/UX CHANGES (IMPORTANT)
+
+Make UI feel like a private club:
+
+* Add header text:
+  "A Private Network for Verified Professionals"
+
+* Add onboarding gate screen:
+  "Access is restricted to verified members only"
+
+* Use clean, minimal, premium design
+
+* Avoid bright taxi-style UI
+
+---
+
+## STEP 8: REMOVE TAXI FEATURES
+
+Remove completely:
+
+* Fare calculation
+* Payment system
+* Map tracking (optional for now)
+* Ride price display
+
+---
+
+## STEP 9: DATABASE STRUCTURE
+
+Create tables:
+
+Users:
+
+* id
+* name
+* profession
+* company
+* linkedin_url
+* phone
+* cnic_file
+* profile_photo
+* role (host/member)
+* status (pending/approved/rejected)
+* created_at
+
+Vehicles:
+
+* id
+* user_id
+* car_model
+* registration_number
+* registration_doc
+
+Journeys:
+
+* id
+* host_id
+* start_location
+* destination
+* datetime
+* seats_available
+
+Requests:
+
+* id
+* journey_id
+* user_id
+* status (pending/accepted/rejected)
+
+---
+
+## STEP 10: SECURITY & VALIDATION
+
+* Enforce required fields
+* Validate LinkedIn URL format
+* Restrict dashboard if not approved
+
+---
+
+FINAL NOTE:
+Keep implementation SIMPLE and FUNCTIONAL.
+Do NOT over-engineer.
+Focus on trust, verification, and clean flow.
+
+END.

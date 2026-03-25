@@ -1,0 +1,35 @@
+"Agent, we have a comprehensive UI/UX and branding update. You must execute ALL 5 of these points in this single deployment without skipping any:
+
+1. The Luxury Dashboard Hero Image (Missing Feature):
+
+On the main 'Dashboard' page and the 'Login/Signup' page, you MUST add a top 'Hero' background image.
+
+Use this exact high-resolution luxury car image URL: https://images.unsplash.com/photo-1503376760367-1b61b2565443?q=80&w=1920&auto=format&fit=crop
+
+Apply a dark Midnight Navy (#0B132B) gradient overlay (e.g., 70% opacity) over the image so it blends into the app and the white text on top remains 100% readable.
+
+2. FORCE Premium Typographic Logo (Remove old yellow icon):
+
+Completely remove the current yellow car icon everywhere.
+
+Implement a text-based logo using a high-end Serif font ('Playfair Display', 'Merriweather', or 'Georgia', fallback serif).
+
+Text MUST read: SyncIn. (Styling: 'Sync' in pure White #FFFFFF, 'In' in Silver #BDC3C7, and the dot '.' in Champagne Gold #D4AF37). Place this in the top-left of the Navy header (font-size: 24px, font-weight: bold).
+
+3. Fix UI Contrast & Depth:
+
+Change the global app background (behind the cards) to a soft, distinct grey (#F3F4F6).
+
+Ensure all interactive cards ('Host', 'Request', Profile) are pure White (#FFFFFF) with a distinct drop-shadow (box-shadow: 0 4px 12px rgba(0,0,0,0.15)) so they float clearly above the grey background.
+
+4. 'Request a Journey' Map Integration:
+
+The 'Request' page is currently missing the map. Mirror the full-screen map background and search UI exactly from the 'Host a Journey' page onto the 'Request' page. Both sides must have map capabilities.
+
+5. True Mobile Map Needle Logic (Crucial UX Fix):
+
+For BOTH Host and Request maps: Do NOT use a standard clickable Leaflet marker.
+
+Fixed Center Pin: Create an HTML/CSS absolute-positioned 'Teardrop' pin with a visible head that sits exactly dead-center over the map container. This pin NEVER moves. The user drags the map underneath it.
+
+Drag & Lock Logic: Use Leaflet's onMoveEnd event. When the user stops dragging, capture the center coordinates, trigger reverse-geocoding, and populate the active input field with the address text."

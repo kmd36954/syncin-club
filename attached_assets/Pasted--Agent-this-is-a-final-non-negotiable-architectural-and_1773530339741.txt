@@ -1,0 +1,45 @@
+"Agent, this is a final, non-negotiable architectural and branding override. You must execute EVERY point below to restore deleted functionality and fix the UI. Do not skip any steps.
+
+1. AUTHENTICATION & SECURITY (THE ENTRY GATE):
+
+Mobile OTP: Restore the login flow where a user enters a Mobile Number and must verify an OTP to enter.
+
+Welcome Email: Upon successful OTP verification, trigger a professional welcome email to the user's provided email address.
+
+Guard: The dashboard is inaccessible until the Mobile OTP is verified.
+
+2. CAR REGISTRATION & PROFILE FORMS (THE PREREQUISITE):
+
+Car Registration Form: Create a dedicated form for Vehicle Make, Model, Year, and License Plate.
+
+Profile Form: Create a form for user personal details (Name, Bio, Contact).
+
+Mandatory Gate: The 'Host a Journey' button must be locked. If clicked, check if a car is registered. If not, redirect the user IMMEDIATELY to the Car Registration Form. They cannot host until this is complete.
+
+3. THE NEW 'SYNCIN' PUZZLE LOGO:
+
+Remove all current icons/hexagons. Create a custom icon of two upward-pointing, interlocking puzzle-piece rectangles.
+
+Colors: Use variant Golds (Champagne Gold #D4AF37 and a deeper Bronze Gold #B8860B) for the two pieces.
+
+Typography: Text must be SyncIn in a bold Serif font. 'Sync' in White, 'In' in Silver. NO full stop.
+
+4. UI COLORS & HERO IMAGES (PRE & POST LOGIN):
+
+Hero Image: You MUST place the luxury Mercedes image (https://images.unsplash.com/photo-1503376760367-1b61b2565443?q=80&w=1920&auto=format&fit=crop) as a background header on BOTH the Pre-Login (Landing) and Post-Login (Dashboard) screens.
+
+Welcome Bar: Only the top header area (where the Welcome text is) should be Dark Grey (bg-gray-800) with a dark overlay over the car image.
+
+Global Background: The main app body background must be a clean Light Grey (bg-gray-100).
+
+Dashboard Cards: 'Host' (Midnight Navy) and 'Request' (Deep Sapphire) must be perfectly centered on mobile (w-full max-w-md mx-auto).
+
+5. THE MAP ENGINE & TEXT:
+
+Fixed Needle: Place a Red Pin icon exactly in the center of the Map. It must stay fixed while the map moves.
+
+Logic: Dragging map under needle must auto-populate the address. Drop a permanent marker once confirmed.
+
+Text: Replace all instances of 'Find the ride' with 'Request a Journey'.
+
+Visibility: Force all text inside Navy cards to be White. Force all Account Page text to be Dark Charcoal on a White card."

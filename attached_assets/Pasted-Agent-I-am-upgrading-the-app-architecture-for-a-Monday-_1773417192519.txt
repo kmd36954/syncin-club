@@ -1,0 +1,30 @@
+Agent, I am upgrading the app architecture for a Monday launch. We are introducing a 3-Tier "Digital Terminal" entry point. 
+
+CRITICAL INSTRUCTION: Do NOT delete, alter, or break the existing green carpooling UI, database, or routing. That existing app is now our "Economy" tier. 
+
+Please implement the following changes step-by-step:
+
+1. THE NEW LOBBY (Root Landing Page)
+- Move the current root page (the green "Share the journey" screen) behind the "Economy" authentication flow.
+- Build a new, premium root Landing Page. 
+- Background: Deep Navy or Matte Charcoal. 
+- Headline: "SyncIn: The Executive Network" (Use a clean, elegant Serif font).
+- Sub-headline: "Synchronizing the logistics, intellect, and assets of Pakistan's professional elite."
+
+2. THE "THREE DOORS" (Tier Selection)
+- On the new Lobby page, create three large, vertical selection cards:
+  * Card 1: "Sovereign (First Class)" - Soft Gold accents. Text: "Executive mobility, discreet M&A intelligence, and protocol."
+  * Card 2: "Business Class" - Silver accents. Text: "Priority peer matching and professional career exchange."
+  * Card 3: "Economy" - Mint Green accents. Text: "Verified daily carpooling and cost-sharing."
+
+3. ROUTING & GATEKEEPING LOGIC
+- If a user clicks "Economy": Route them directly to the existing sign-up/login flow and the current green app interface.
+- If a user clicks "Sovereign" or "Business": Route them to a new premium signup form.
+- The premium form must ask for: Name, Corporate Email, Designation, and Company.
+- Upon submitting the premium form, do NOT let them into the app yet. Route them to a static, dark holding screen that says: "Application Received. Admissions Board Verification Pending. You will be notified via email when your Sovereign/Business access is granted."
+
+4. THE VIP DASHBOARD (The "Paint Job" & Static Concierge)
+- Add a boolean field to the user database: `is_sovereign` (default false).
+- If `is_sovereign` is true, apply a CSS override to their dashboard: Change the background to Matte Charcoal, accents to Soft Gold, and hide any text mentioning "Rs. 200 fuel share". 
+- For Sovereign users, add a floating Gold Seal button in the bottom right corner labeled "Sovereign Aide". 
+- Make that button a simple `href` link that opens a WhatsApp chat to my number (use a placeholder number for now), pre-filling the message: "Protocol Desk: I need to sync a journey or request intelligence."

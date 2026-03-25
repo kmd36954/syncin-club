@@ -1,0 +1,41 @@
+"Agent, this is a strict, comprehensive architectural override. You must execute every single point below perfectly without skipping any steps or altering anything outside these instructions. Read carefully:
+
+1. GLOBAL LAYOUT & HERO IMAGES:
+
+Background: Set the absolute global background (behind all content) to Premium Beige: bg-[#F4F1EA]. Remove any instances of bg-gray-50 or bg-slate-100.
+
+Hero Image: On both the Pre-Login (Landing) page AND the Post-Login Dashboard, the top background section MUST use this image: https://images.unsplash.com/photo-1503376760367-1b61b2565443?q=80&w=1920&auto=format&fit=crop. Apply bg-cover, bg-center, and a dark overlay (bg-black/60) so the white text on top is perfectly visible.
+
+Mobile Centering: Apply overflow-x-hidden to the root <App> or <body>. Add w-full max-w-md mx-auto to the main cards container to force perfect centering on mobile.
+
+2. EXACT LOGO REPLACEMENT:
+
+Delete the current logo code (remove the empty hexagon).
+
+Import the Link or RefreshCcw icon from lucide-react to represent syncing/connecting.
+
+The Logo Structure: Create a flex container. Place the lucide-react icon on the left (Color: #D4AF37, Size: 28px).
+
+The Text: Next to the icon, add the text SyncIn (DO NOT add a full stop). Use a Serif font (font-serif font-bold text-2xl). Make 'Sync' pure White (#FFFFFF) and 'In' Silver (#BDC3C7).
+
+3. TEXT REPLACEMENT (CRITICAL):
+
+Search the entire codebase for 'Find the ride' or 'Find a Ride'.
+
+Replace every single instance with EXACTLY: Request a Journey.
+
+4. DASHBOARD CARDS & FORM PAGES (NAVY BLUE):
+
+Dashboard Cards: The 'Host' card must be bg-[#0B132B] (Midnight Navy). The 'Request' card must be bg-[#172554] (Deep Sapphire). Give both rounded-xl shadow-xl.
+
+Form Pages: The actual pages where users fill out Host/Request details must also use the Navy Blue background (bg-[#0B132B]) with text-white.
+
+Input Visibility: Inside all of these Navy cards and forms, every <input>, <select>, and search bar MUST have a pure white background with dark text (bg-white text-gray-900) so the user can read what they type.
+
+5. ACCOUNT PAGE & MOBILE MENU RESCUE:
+
+Account/Profile Page: The text here is currently invisible. Wrap the entire Account/Profile content in a clean white card: className="bg-white rounded-xl shadow-xl p-6 w-full max-w-2xl mx-auto". Force all text inside to be Dark Charcoal (text-gray-900).
+
+Mobile Hamburger Menu: Open the mobile drawer/sidebar component. Force its background to pure white (bg-white) and force all navigation links inside it to be dark (text-gray-900 font-bold).
+
+Buttons on Mobile: Ensure all primary action buttons (Publish, Search) have w-full on mobile views so they are easy to tap and never hidden."

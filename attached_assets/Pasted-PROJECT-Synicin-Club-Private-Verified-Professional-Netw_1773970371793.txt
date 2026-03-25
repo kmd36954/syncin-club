@@ -1,0 +1,274 @@
+PROJECT: Synicin Club (Private Verified Professional Network)
+
+OBJECTIVE:
+Convert the current app into a PREMIUM, MEMBERS-ONLY professional journey-sharing platform.
+This is NOT a ride-hailing app. Remove all taxi-like behavior.
+
+---
+
+## CORE EXPERIENCE GOAL
+
+The app must feel:
+
+* Exclusive
+* Trust-based
+* Professional
+* Minimal and premium
+
+Users should feel:
+“I am entering a private verified network, not a public app.”
+
+---
+
+## STEP 1: LANDING / GATEKEEPING SCREEN (MANDATORY)
+
+Create a new first screen BEFORE app access.
+
+Content:
+
+Title:
+"Synicin Club"
+
+Subtitle:
+"A Private Network for Verified Professionals"
+
+Description:
+"Access is restricted to professionals with verified identity and credentials."
+
+Buttons:
+
+1. "Apply for Membership"
+2. "Member Login"
+
+Add small footer text:
+"Travel with people you can trust"
+
+Block access to dashboard unless user is approved.
+
+---
+
+## STEP 2: ONBOARDING (MAKE IT PREMIUM)
+
+Replace simple forms with a structured “Membership Application”
+
+Fields:
+
+* Full Name (required)
+* Designation (required, dropdown + custom input)
+* Organization / Company (required)
+* LinkedIn Profile URL (required, validate format)
+* Phone Number (OTP verification required)
+* CNIC Upload (required)
+* Profile Photo (selfie upload required)
+* Short Answer:
+  "Why do you want to join Synicin Club?"
+
+If user selects “Host” role, add:
+
+* Car Model
+* Registration Number
+* Car Registration Document Upload
+
+After submission:
+Show screen:
+"Your application is under review"
+
+---
+
+## STEP 3: USER STATUS CONTROL
+
+Add user status system:
+
+* pending
+* approved
+* rejected
+
+Rules:
+
+* Only "approved" users can access dashboard
+* Others see "Verification Pending" screen
+
+---
+
+## STEP 4: DASHBOARD REDESIGN (PREMIUM LOOK)
+
+Create a clean dashboard layout:
+
+TOP NAVBAR:
+
+* Logo (Synicin Club)
+* Profile icon
+* Notifications
+
+LEFT SIDEBAR:
+
+* Dashboard
+* Offer Journey
+* Find Journeys
+* My Requests
+* Profile
+
+MAIN DASHBOARD CONTENT:
+
+Section 1:
+"Available Journeys Near You"
+
+Section 2:
+"Your Upcoming Journeys"
+
+Section 3:
+"Verified Members"
+
+Design style:
+
+* Minimal
+* White or dark theme
+* Use navy blue / black + gold accents
+* No bright or playful colors
+
+---
+
+## STEP 5: PROFILE SYSTEM (TRUST-FIRST)
+
+Each user must have a visible profile card:
+
+Include:
+
+* Profile photo
+* Full name
+* Profession badge (e.g. Doctor, Engineer)
+* Company name
+* LinkedIn (clickable)
+* "Verified ✔"
+* Member since date
+
+IMPORTANT:
+Show this profile BEFORE joining any journey.
+
+---
+
+## STEP 6: JOURNEY SYSTEM (REBRAND + SIMPLIFY)
+
+Rename everything:
+
+* Driver → Host
+* Passenger → Member
+* Ride → Journey
+* Book Ride → Request to Join Journey
+* REMOVE all fare/pricing features
+
+---
+
+## STEP 7: JOURNEY CARD REDESIGN
+
+Each journey must display:
+
+* From → To
+* Date & Time
+* Available seats
+
+Host Info (IMPORTANT):
+
+* Profile photo
+* Name
+* Profession
+* Company
+
+Button:
+"Request to Join Journey"
+
+Add note:
+"Members coordinate travel details mutually"
+
+---
+
+## STEP 8: REQUEST FLOW
+
+When user clicks "Request to Join":
+
+* Send request to Host
+* Host can Accept / Reject
+
+Statuses:
+
+* pending
+* accepted
+* rejected
+
+---
+
+## STEP 9: REMOVE TAXI FEATURES
+
+Remove completely:
+
+* Fare calculation
+* Payment system
+* Price display
+* Taxi-style booking UI
+
+---
+
+## STEP 10: ADMIN PANEL (BASIC)
+
+Create simple admin view:
+
+Admin can:
+
+* View all applications
+* Approve / Reject users
+* View uploaded documents
+* Change user status
+
+---
+
+## STEP 11: INVITE / EXCLUSIVITY (BASIC VERSION)
+
+Add message in onboarding:
+
+"Synicin Club operates as a selective network. Applications are reviewed carefully."
+
+(Optional structure for later: invite codes)
+
+---
+
+## STEP 12: MICROCOPY (IMPORTANT)
+
+Use premium language across app:
+
+Replace generic text with:
+
+* "Offer a Journey"
+* "Request to Join"
+* "Verified Professionals Only"
+* "Private Network Access"
+
+---
+
+## STEP 13: BASIC MATCHING
+
+Show journeys filtered by:
+
+* Same city
+* Similar route (basic string match)
+* Date/time proximity
+
+Keep logic simple.
+
+---
+
+## STEP 14: VALIDATION & SECURITY
+
+* All required fields must be enforced
+* Validate LinkedIn URL format
+* Restrict dashboard access unless approved
+
+---
+
+## FINAL INSTRUCTIONS:
+
+* Keep UI clean and professional
+* Do NOT overcomplicate backend logic
+* Focus on trust, identity, and exclusivity
+* Ensure smooth navigation flow
+
+END.

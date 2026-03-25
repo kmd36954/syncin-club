@@ -1,0 +1,56 @@
+Fix these issues one by one in order, then publish once at the end:
+1. Real names on cards — fix the backend JOIN:
+In artifacts/api-server/src/routes/rides.ts in the GET /api/rides route, change the SELECT query to:
+sqlSELECT r.*, 
+  u.first_name || ' ' || u.last_name AS driver_name,
+  u.job_title AS driver_job_title,
+  u.company_name AS driver_company
+FROM rides r
+JOIN users u ON r.driver_id = u.id
+WHERE r.status = 'active' AND r.driver_id != $1
+Also do the same JOIN in GET /api/journey-requests but join on passenger_id.
+2. Remove dummy cards:
+In Dashboard.tsx delete any hardcoded mock/dummy data arrays. If API returns empty, show "No journeys available right now."
+3. Hide cancelled journeys from Journey Offers:
+In Dashboard.tsx filter the offers list:
+tsxconst activeOffers = journeyOffers.filter(j => j.status === 'active')
+Render activeOffers not raw journeyOffers.
+4. Hide my own requests from Journey Requests section:
+In GET /api/journey-requests backend add:
+sqlWHERE jr.status = 'open' AND jr.passenger_id != $1
+Also in Dashboard.tsx:
+tsxconst othersRequests = journeyRequests.filter(r => r.passengerId !== currentUser.id)
+5. Notification bell — red number badge + alert sound:
+In the notification bell component, show a red badge with the unread count:
+tsx<div className="relative">
+  <BellIcon />
+  {unreadCount > 0 && (
+    <span className="absolute -top-1 -right-1 bg-red-500 text-white 
+      text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+      {unreadCount > 99 ? '99+' : unreadCount}
+    </span>
+  )}
+</div>
+For the alert sound, use Web Audio API (no mp3 file needed):
+tsxconst playBeep = () => {
+  try {
+    const ctx = new AudioContext()
+    const oscillator = ctx.createOscillator()
+    const gain = ctx.createGain()
+    oscillator.connect(gain)
+    gain.connect(ctx.destination)
+    oscillator.frequency.value = 880
+    gain.gain.value = 0.3
+    oscillator.start()
+    setTimeout(() => oscillator.stop(), 300)
+  } catch(e) {}
+}
+Call playBeep() whenever unreadCount increases. Use a useRef to store previous count and compare:
+tsxconst prevCount = useRef(0)
+useEffect(() => {
+  if (unreadCount > prevCount.current) {
+    playBeep()
+  }
+  prevCount.current = unreadCount
+}, [unreadCount])
+After all 5 fixes are done, publish once. Do not publish between steps.

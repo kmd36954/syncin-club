@@ -1,0 +1,382 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: ShareTheRide API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: auth
+    description: Authentication operations
+  - name: rides
+    description: Ride operations
+  - name: profile
+    description: User profile operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /auth/user:
+    get:
+      operationId: getCurrentAuthUser
+      tags: [auth]
+      summary: Get current user
+      responses:
+        "200":
+          description: Current user or unauthenticated state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetCurrentAuthUserResponse"
+  /profile:
+    put:
+      operationId: updateProfile
+      tags: [profile]
+      summary: Update professional profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProfileBody"
+      responses:
+        "200":
+          description: Profile updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUser"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /rides:
+    get:
+      operationId: listRides
+      tags: [rides]
+      summary: List all available rides
+      parameters:
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of rides
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListRidesResponse"
+    post:
+      operationId: createRide
+      tags: [rides]
+      summary: Create a ride offer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRideBody"
+      responses:
+        "201":
+          description: Ride created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ride"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /rides/{id}:
+    get:
+      operationId: getRide
+      tags: [rides]
+      summary: Get a ride by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Ride details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ride"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    delete:
+      operationId: deleteRide
+      tags: [rides]
+      summary: Delete a ride offer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Ride deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /rides/{id}/book:
+    post:
+      operationId: bookRide
+      tags: [rides]
+      summary: Book a ride with pickup location
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookRideBody"
+      responses:
+        "200":
+          description: Ride booked
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookRideResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    GetCurrentAuthUserResponse:
+      type: object
+      properties:
+        authenticated:
+          type: boolean
+        user:
+          $ref: "#/components/schemas/AuthUser"
+      required:
+        - authenticated
+    AuthUser:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        profileImage:
+          type: string
+        companyName:
+          type: string
+        jobTitle:
+          type: string
+        isSovereign:
+          type: boolean
+        isBusiness:
+          type: boolean
+      required:
+        - id
+        - username
+    UpdateProfileBody:
+      type: object
+      properties:
+        companyName:
+          type: string
+        jobTitle:
+          type: string
+    Ride:
+      type: object
+      properties:
+        id:
+          type: integer
+        driverId:
+          type: string
+        driverName:
+          type: string
+        driverImage:
+          type: string
+        driverCompany:
+          type: string
+        driverJobTitle:
+          type: string
+        startLocation:
+          type: string
+        destination:
+          type: string
+        departureTime:
+          type: string
+        price:
+          type: number
+        seatsAvailable:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - driverId
+        - driverName
+        - startLocation
+        - destination
+        - departureTime
+        - price
+        - seatsAvailable
+        - createdAt
+    CreateRideBody:
+      type: object
+      properties:
+        startLocation:
+          type: string
+        destination:
+          type: string
+        departureTime:
+          type: string
+        price:
+          type: number
+        seatsAvailable:
+          type: integer
+      required:
+        - startLocation
+        - destination
+        - departureTime
+        - price
+        - seatsAvailable
+    BookRideBody:
+      type: object
+      properties:
+        pickupDescription:
+          type: string
+        pickupLat:
+          type: number
+        pickupLng:
+          type: number
+      required:
+        - pickupDescription
+    BookRideResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        bookingId:
+          type: integer
+        driverName:
+          type: string
+        riderName:
+          type: string
+        destination:
+          type: string
+        pickupLat:
+          type: number
+        pickupLng:
+          type: number
+        whatsappUrl:
+          type: string
+      required:
+        - success
+        - bookingId
+        - driverName
+        - riderName
+        - destination
+    ListRidesResponse:
+      type: object
+      properties:
+        rides:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ride"
+      required:
+        - rides
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+    ExchangeMobileAuthorizationCodeBody:
+      type: object
+      properties:
+        code:
+          type: string
+        code_verifier:
+          type: string
+        redirect_uri:
+          type: string
+        state:
+          type: string
+        nonce:
+          type: string
+      required:
+        - code
+        - code_verifier
+        - redirect_uri
+        - state
+    ExchangeMobileAuthorizationCodeResponse:
+      type: object
+      properties:
+        token:
+          type: string
+      required:
+        - token
+    LogoutMobileSessionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+        - success
