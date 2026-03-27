@@ -1,21 +1,11 @@
 [phases.setup]
-nixPkgs = ["nodejs", "curl"]
+nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = [
-  "curl -fsSL https://fnm.vercel.app/install | bash",
-  "export PATH=\"$HOME/.fnm:$PATH\"",
-  "fnm install 20",
-  "fnm use 20",
-  "corepack enable",
-  "corepack prepare pnpm@8.15.0 --activate",
-  "pnpm install"
-]
+cmds = ["npm install -g pnpm@8", "pnpm install --no-frozen-lockfile"]
 
 [phases.build]
-cmds = [
-  "pnpm --filter share-the-ride build"
-]
+cmds = ["pnpm --filter share-the-ride build"]
 
 [start]
-cmd = "pnpm --filter share-the-ride preview --host"
+cmd = "node artifacts/api-server/dist/index.js"
